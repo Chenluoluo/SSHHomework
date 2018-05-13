@@ -76,7 +76,7 @@ public class UserServiceImpl implements IUserService {
 	public void removeUser(String username) throws Exception {
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
-		String sql = "from UserModel";
+		String sql = "from UserModel where username = '" + username +"'";
 		Query<UserModel> query = session.createQuery(sql,UserModel.class);
 		List<UserModel> list = query.getResultList();
 		session.delete(list.get(0));

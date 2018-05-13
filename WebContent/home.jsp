@@ -58,12 +58,12 @@
 			<div class="uk-width-medium-3-4">
 
 				<!-- 输出 -->
-				<c:forEach var="blog" items="${ listBlog.rows }">
+				<c:forEach var="blog" items="${ listBlog }">
 
 					<article class="uk-article">
 					<h2>
 						<a
-							href="blog/view.jsp?number=${ blog.number }&author=${ blog.author }">${ blog.title }</a>
+							href="blog/toblog.do?number=${ blog.number }&author=${ blog.author }">${ blog.title }</a>
 					</h2>
 					<p class="uk-article-meta">${ blog.author }
 						<fmt:message key="home.published_in" />
@@ -72,7 +72,7 @@
 					<p>${ blog.decoration }</p>
 					<p>
 						<a
-							href="blog/view.jsp?number=${ blog.number }&author=${ blog.author }"><fmt:message
+							href="blog/toblog.do?number=${ blog.number }&author=${ blog.author }"><fmt:message
 								key="home.keepreading" /><i class="uk-icon-angle-double-right"></i></a>
 					</p>
 					</article>

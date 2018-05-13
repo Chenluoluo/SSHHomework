@@ -1,7 +1,5 @@
 package cn.ciwest.ssh.action;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -9,8 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import cn.ciwest.ssh.model.BlogModel;
 import cn.ciwest.ssh.service.IBlogService;
 
-public class HomeFrontAction extends ActionSupport {
-
+public class BlogRemoveAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private IBlogService blogService = null;
@@ -20,20 +17,21 @@ public class HomeFrontAction extends ActionSupport {
 		this.blogService = blogService;
 	}
 
-	private List<BlogModel> listBlog = null;
+	private String number = null;
 
-	public List<BlogModel> getListBlog() {
-		return listBlog;
+	public String getNumber() {
+		return number;
 	}
 
-	public void setListBlog(List<BlogModel> listBlog) {
-		this.listBlog = listBlog;
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	@Override
 	public String execute() throws Exception {
-		listBlog = blogService.getAllBlog();
+		// TODO Auto-generated method stub
+		blogService.removeBlog(Integer.parseInt(number));
+		System.out.println("文章删除成功");
 		return SUCCESS;
 	}
-
 }

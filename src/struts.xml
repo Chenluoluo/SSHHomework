@@ -36,4 +36,22 @@
 		</action>
 	</package>
 
+	<package name="blog" namespace="/blog" extends="struts-default">
+		<action name="toblog" class="cn.ciwest.ssh.action.BlogFrontAction">
+			<result name="success">view.jsp</result>
+		</action>
+		<action name="tomodifyblog" class="cn.ciwest.ssh.action.BlogModifyFrontAction">
+			<result name="success">modify.jsp</result>
+		</action>
+		<action name="edit" class="cn.ciwest.ssh.action.BlogEditAction">
+			<result name="success" type="redirect">/tohome.do</result>
+		</action>
+		<action name="modify" class="cn.ciwest.ssh.action.BlogModifyAction">
+			<result name="success" type="redirect">/tohome.do</result>
+		</action>
+		<action name="remove" class="cn.ciwest.ssh.action.BlogRemoveAction">
+			<result name="success" type="redirect">/tohome.do</result>
+		</action>
+	</package>
+
 </struts>
