@@ -27,15 +27,15 @@
 	<div class="uk-container uk-container-center">
 		<a href="#" class="uk-navbar-brand"><fmt:message key="menu.blog" /></a>
 		<ul class="uk-navbar-nav">
-			<li><a href="../home.jsp"><i class="uk-icon-home"></i> <fmt:message
+			<li><a href="../tohome.do"><i class="uk-icon-home"></i> <fmt:message
 						key="menu.home" /></a></li>
 			<li><a href="../blog/edit.jsp"><i class="uk-icon-book"></i>
 					<fmt:message key="menu.edit" /></a></li>
-			<li><a href="../message/message.jsp"><i
+			<li><a href="../message/tomessage.do"><i
 					class="uk-icon-align-left"></i> <fmt:message key="menu.message" /></a></li>
 			<li><a href="../message/write.jsp"><i class="uk-icon-edit"></i>
 					<fmt:message key="menu.write" /></a></li>
-			<li><a href="../picture/picture.jsp"><i class="uk-icon-file"></i>
+			<li><a href="../picture/topicture.do"><i class="uk-icon-file"></i>
 					<fmt:message key="menu.picture" /></a></li>
 			<li><a href="../picture/upload.jsp"><i class="uk-icon-arrow-up"></i>
 					<fmt:message key="menu.upload" /></a></li>

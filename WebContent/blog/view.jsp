@@ -30,18 +30,18 @@
 	<div class="uk-container uk-container-center">
 		<a href="#" class="uk-navbar-brand"><fmt:message key="menu.blog" /></a>
 		<ul class="uk-navbar-nav">
-			<li><a href="../home.jsp"><i class="uk-icon-home"></i> <fmt:message
+			<li><a href="../tohome.do"><i class="uk-icon-home"></i> <fmt:message
 						key="menu.home" /></a></li>
-			<li><a href="../blog/edit.jsp"><i class="uk-icon-book"></i>
-					<fmt:message key="menu.edit" /></a></li>
-			<li><a href="../message/message.jsp"><i
+			<li><a href="edit.jsp"><i class="uk-icon-book"></i> <fmt:message
+						key="menu.edit" /></a></li>
+			<li><a href="../message/tomessage.do"><i
 					class="uk-icon-align-left"></i> <fmt:message key="menu.message" /></a></li>
 			<li><a href="../message/write.jsp"><i class="uk-icon-edit"></i>
 					<fmt:message key="menu.write" /></a></li>
-			<li><a href="../picture/picture.jsp"><i class="uk-icon-file"></i>
+			<li><a href="../picture/topicture.do"><i class="uk-icon-file"></i>
 					<fmt:message key="menu.picture" /></a></li>
-			<li><a href="../picture/upload.jsp"><i
-					class="uk-icon-arrow-up"></i> <fmt:message key="menu.upload" /></a></li>
+			<li><a href="../picture/upload.jsp"><i class="uk-icon-arrow-up"></i>
+					<fmt:message key="menu.upload" /></a></li>
 		</ul>
 		<div class="uk-navbar-flip">
 			<ul class="uk-navbar-nav">
@@ -101,7 +101,7 @@
 								<h4 class="uk-comment-title">${ comment.username }</h4>
 								<ul class="uk-comment-meta uk-subnav uk-subnav-line">
 									<li><span>${ comment.time }</span></li>
-									<li><a href="../comment/remove.do?blognumber=${ param.number }&number=${ comment.number }&author=${ param.author }"
+									<li><a href="../comment/remove.do?number=${ comment.number }"
 										style="color: red"><fmt:message
 												key="message.message.remove" /></a></li>
 								</ul>
@@ -136,11 +136,11 @@
 					</h3>
 					<article class="uk-comment">
 					<div class="uk-comment-body">
-						<form action="../comment/edit.do?blognumber=${ param.number }&author=${ param.author }"
+						<form action="../comment/edit.do?commentModel.blognumber=${ param.number }"
 							method="post" id="form-comment" class="uk-form">
 							<div class="uk-alert uk-alert-danger uk-hidden"></div>
 							<div class="uk-form-row">
-								<textarea name="content" rows="6"
+								<textarea name="commentModel.content" rows="6"
 									placeholder="<fmt:message key="blog.view.comment_tip" />"
 									style="width: 100%; resize: none;"></textarea>
 							</div>

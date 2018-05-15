@@ -16,20 +16,20 @@
 	<package name="user" namespace="/user" extends="struts-default">
 
 		<action name="register" class="cn.ciwest.ssh.action.UserRegisterAction">
-			<result name="success" type="redirect">login.jsp</result>
-			<result name="failed" type="redirect">registerFailed.jsp</result>
+			<result name="success">login.jsp</result>
+			<result name="failed">registerFailed.jsp</result>
 		</action>
 		<action name="login" class="cn.ciwest.ssh.action.UserLoginAction">
-			<result name="success" type="redirect">loginSucceed.jsp</result>
-			<result name="nouser" type="redirect">loginNoUser.jsp</result>
-			<result name="failed" type="redirect">loginFailed.jsp</result>
+			<result name="success">loginSucceed.jsp</result>
+			<result name="nouser">loginNoUser.jsp</result>
+			<result name="failed">loginFailed.jsp</result>
 		</action>
 		<action name="logout" class="cn.ciwest.ssh.action.UserLogoutAction">
 			<result name="success" type="redirect">login.jsp</result>
 		</action>
 		<action name="modify" class="cn.ciwest.ssh.action.UserModifyAction">
 			<result name="success" type="redirect">/tohome.do</result>
-			<result name="failed" type="redirect">modifyFailed.jsp</result>
+			<result name="failed">modifyFailed.jsp</result>
 		</action>
 		<action name="remove" class="cn.ciwest.ssh.action.UserRemoveAction">
 			<result name="success" type="redirect">logout.do</result>
@@ -53,5 +53,51 @@
 			<result name="success" type="redirect">/tohome.do</result>
 		</action>
 	</package>
+
+	<package name="comment" namespace="/comment" extends="struts-default">
+		<action name="edit" class="cn.ciwest.ssh.action.CommentEditAction">
+			<result name="success" type="redirect">/tohome.do</result>
+		</action>
+		<action name="remove" class="cn.ciwest.ssh.action.CommentRemoveAction">
+			<result name="success" type="redirect">/tohome.do</result>
+		</action>
+	</package>
+
+	<package name="message" namespace="/message" extends="struts-default">
+		<action name="tomessage" class="cn.ciwest.ssh.action.MessageFrontAction">
+			<result name="success">message.jsp</result>
+		</action>
+		<action name="write" class="cn.ciwest.ssh.action.MessageWriteAction">
+			<result name="success" type="redirect">tomessage.do</result>
+		</action>
+		<action name="remove" class="cn.ciwest.ssh.action.MessageRemoveAction">
+			<result name="success" type="redirect">tomessage.do</result>
+		</action>
+	</package>
+
+	<package name="picture" namespace="/picture" extends="struts-default">
+		<action name="upload" class="cn.ciwest.ssh.action.PictureUploadAction">
+			<result name="success" type="redirect">topicture.do</result>
+		</action>
+		<action name="topicture" class="cn.ciwest.ssh.action.PictureFrontAction">
+			<result name="success">picture.jsp</result>
+		</action>
+		<action name="topicturemodify" class="cn.ciwest.ssh.action.PictureModifyFrontAction">
+			<result name="success">modify.jsp</result>
+		</action>
+		<action name="topictureview" class="cn.ciwest.ssh.action.PictureViewFrontAction">
+			<result name="success">view.jsp</result>
+		</action>
+		<action name="showimage" class="cn.ciwest.ssh.action.PictureShowImageAction">
+			<result name="success" type="stream">inputStream</result>
+		</action>
+		<action name="modify" class="cn.ciwest.ssh.action.PictureModifyAction">
+			<result name="success" type="redirect">topicture.do</result>
+		</action>
+		<action name="remove" class="cn.ciwest.ssh.action.PictureRemoveAction">
+			<result name="success" type="redirect">topicture.do</result>
+		</action>
+	</package>
+
 
 </struts>

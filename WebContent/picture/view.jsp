@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><fmt:message key="blog.modify.title" /></title>
+<title>${ param.number }<fmt:message key="picture.view.title" /></title>
 <link rel="stylesheet" href="../static/css/uikit.min.css">
 <link rel="stylesheet" href="../static/css/uikit.gradient.min.css">
 <link rel="stylesheet" href="../static/css/awesome.css">
@@ -18,7 +18,10 @@
 <script src="../static/js/uikit.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$('#vm').show();
+		if ('${ param.author }' == '${ user.getUsername() }') {
+			$("#modify").removeClass("uk-hidden");
+			$("#remove").removeClass("uk-hidden");
+		}
 	});
 </script>
 </head>
@@ -29,16 +32,16 @@
 		<ul class="uk-navbar-nav">
 			<li><a href="../tohome.do"><i class="uk-icon-home"></i> <fmt:message
 						key="menu.home" /></a></li>
-			<li><a href="edit.jsp"><i class="uk-icon-book"></i> <fmt:message
-						key="menu.edit" /></a></li>
+			<li><a href="../blog/edit.jsp"><i class="uk-icon-book"></i>
+					<fmt:message key="menu.edit" /></a></li>
 			<li><a href="../message/tomessage.do"><i
 					class="uk-icon-align-left"></i> <fmt:message key="menu.message" /></a></li>
 			<li><a href="../message/write.jsp"><i class="uk-icon-edit"></i>
 					<fmt:message key="menu.write" /></a></li>
-			<li><a href="../picture/topicture.do"><i class="uk-icon-file"></i>
-					<fmt:message key="menu.picture" /></a></li>
-			<li><a href="../picture/upload.jsp"><i class="uk-icon-arrow-up"></i>
-					<fmt:message key="menu.upload" /></a></li>
+			<li><a href="../picture/topicture.do"><i
+					class="uk-icon-file"></i> <fmt:message key="menu.picture" /></a></li>
+			<li><a href="../picture/upload.jsp"><i
+					class="uk-icon-arrow-up"></i> <fmt:message key="menu.upload" /></a></li>
 		</ul>
 		<div class="uk-navbar-flip">
 			<ul class="uk-navbar-nav">
@@ -59,69 +62,26 @@
 
 	<div class="uk-container uk-container-center">
 		<div class="uk-grid">
-			<!-- content -->
-			<div class="uk-width-1-1 uk-margin-bottom">
-				<div class="uk-panel uk-panel-box">
-					<ul class="uk-breadcrumb">
-						<li><a href="../home.jsp"><fmt:message key="menu.home" /></a></li>
-						<li><a href="../picture/picture.jsp"><fmt:message
-									key="menu.picture" /></a></li>
-						<li><a href="../comment/comment.jsp"><fmt:message
-									key="menu.message" /></a></li>
-					</ul>
-				</div>
+			<div class="uk-width-medium-3-4">
+					<article class="uk-article">
+					<h2>
+						<a
+							href="topictureview.do?number=${ pictureModel.number }&author=${ pictureModel.author }">${ pictureModel.name }</a>
+					</h2>
+					<p class="uk-article-meta">${ pictureModel.author }
+						<fmt:message key="picture.picture.upload_in" />
+						${ pictureModel.create_time }
+					</p>
+					<p>
+						<a id="modify" href="topicturemodify.do?number=${ pictureModel.number }"
+							class="uk-hidden"><fmt:message key="blog.view.modify" /></a> <a
+							id="remove" href="remove.do?pictureModel.number=${ pictureModel.number }"
+							class="uk-hidden" style="color: red"><fmt:message
+								key="blog.view.remove" /></a>
+					</p>
+					<img src="showimage.do?number=${ param.number }"> </article>
+				<hr class="uk-article-divider">
 			</div>
-			<div id="vm" class="uk-width-2-3">
-					<form method="post" action="modify.do?blogModel.number=${ blog.number }"
-						class="uk-form uk-form-stacked">
-						<div class="uk-alert uk-alert-danger uk-hidden"></div>
-						<div class="uk-form-row">
-							<label class="uk-form-label"><fmt:message
-									key="blog.edit.form_title" /></label>
-							<div class="uk-form-controls">
-								<input v-model="title" name="blogModel.title" type="text"
-									placeholder="<fmt:message key="blog.edit.form_title" />"
-									class="uk-width-1-1" value="${ blog.title }">
-							</div>
-						</div>
-						<div class="uk-form-row">
-							<label class="uk-form-label"><fmt:message
-									key="blog.edit.form_type" /></label>
-							<div class="uk-form-controls">
-								<textarea v-model="type" rows="1" name="blogModel.type"
-									placeholder="<fmt:message key="blog.edit.form_type" />"
-									class="uk-width-1-1" style="resize: none;">${ blog.type }</textarea>
-							</div>
-						</div>
-						<div class="uk-form-row">
-							<label class="uk-form-label"><fmt:message
-									key="blog.edit.form_decoration" /></label>
-							<div class="uk-form-controls">
-								<textarea v-model="decoration" rows="4" name="blogModel.decoration"
-									placeholder="<fmt:message key="blog.edit.form_decoration" />"
-									class="uk-width-1-1" style="resize: none;">${ blog.decoration }</textarea>
-							</div>
-						</div>
-						<div class="uk-form-row">
-							<label class="uk-form-label"><fmt:message
-									key="blog.edit.form_text" /></label>
-							<div class="uk-form-controls">
-								<textarea v-model="text" rows="16" name="blogModel.text"
-									placeholder="<fmt:message key="blog.edit.form_text" />"
-									class="uk-width-1-1" style="resize: none;">${ blog.text }</textarea>
-							</div>
-						</div>
-						<div class="uk-form-row">
-							<button type="submit" class="uk-button uk-button-primary">
-								<i class="uk-icon-save"></i>
-								<fmt:message key="blog.modify.save" />
-							</button>
-							<a href="../home.jsp" class="uk-button"><i
-								class="uk-icon-times"></i> <fmt:message key="blog.modify.cancel" /></a>
-						</div>
-					</form>
-			</div>
-			<!-- // content -->
 		</div>
 	</div>
 
