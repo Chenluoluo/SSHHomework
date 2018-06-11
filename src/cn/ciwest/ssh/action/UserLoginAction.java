@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Validateable;
 
 import cn.ciwest.ssh.model.UserModel;
 import cn.ciwest.ssh.service.IUserService;
 
-public class UserLoginAction extends ActionSupport {
+public class UserLoginAction extends ActionSupport implements Validateable{
 
 	private static final long serialVersionUID = 1L;
 
@@ -50,6 +51,13 @@ public class UserLoginAction extends ActionSupport {
 				return "failed";
 			}
 		}
+	}
+	
+	
+	@Override
+	public void validate() {
+		// TODO Auto-generated method stub
+		super.validate();
 	}
 
 }

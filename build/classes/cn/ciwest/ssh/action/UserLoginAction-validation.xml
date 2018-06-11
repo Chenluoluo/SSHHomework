@@ -1,0 +1,10 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" 
+     "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd"> 
+  <validators>
+  
+    <field name="userModel.username">
+		  <field-validator type="requiredstring">
+		      <message>XML整数，且在18到60之间</message>
+		  </field-validator>
+   </field>
+   </validators>

@@ -13,42 +13,50 @@
 <script type="text/javascript">
 	function checkregister(form) {
 		if (form.username.value == "") {
-			$(document).ready(function(e) {
-				$("#message").removeClass("uk-hidden");
-				$('#message').html('<fmt:message key="user.register.username_message" />');
-			})
+			$(document)
+					.ready(
+							function(e) {
+								$("#message").removeClass("uk-hidden");
+								$('#message')
+										.html(
+												'<fmt:message key="user.register.username_message" />');
+							})
 			form.username.focus();
 			return false;
 		}
 		if (form.name.value == "") {
-			$(document).ready(function(e) {
-				$("#message").removeClass("uk-hidden");
-				$('#message').html('<fmt:message key="user.register.name_message" />');
-			})
+			$(document)
+					.ready(
+							function(e) {
+								$("#message").removeClass("uk-hidden");
+								$('#message')
+										.html(
+												'<fmt:message key="user.register.name_message" />');
+							})
 			form.name.focus();
 			return false;
 		}
 		if (form.email.value == "") {
-			$(document).ready(function(e) {
-				$("#message").removeClass("uk-hidden");
-				$('#message').html('<fmt:message key="user.register.email_message" />');
-			})
-			form.email.focus();
-			return false;
-		}
-		if (form.phone.value == "") {
-			$(document).ready(function(e) {
-				$("#message").removeClass("uk-hidden");
-				$('#message').html('<fmt:message key="user.register.phone_message" />');
-			})
+			$(document)
+					.ready(
+							function(e) {
+								$("#message").removeClass("uk-hidden");
+								$('#message')
+										.html(
+												'<fmt:message key="user.register.email_message" />');
+							})
 			form.email.focus();
 			return false;
 		}
 		if (form.password.value == "") {
-			$(document).ready(function(e) {
-				$("#message").removeClass("uk-hidden");
-				$('#message').html('<fmt:message key="user.register.password_message" />');
-			})
+			$(document)
+					.ready(
+							function(e) {
+								$("#message").removeClass("uk-hidden");
+								$('#message')
+										.html(
+												'<fmt:message key="user.register.password_message" />');
+							})
 			form.password.focus();
 			return false;
 		}
@@ -56,10 +64,14 @@
 			$("#message").addClass("uk-hidden");
 			return true;
 		} else {
-			$(document).ready(function(e) {
-				$("#message").removeClass("uk-hidden");
-				$('#message').html('<fmt:message key="user.register.repassword_message" />');
-			})
+			$(document)
+					.ready(
+							function(e) {
+								$("#message").removeClass("uk-hidden");
+								$('#message')
+										.html(
+												'<fmt:message key="user.register.repassword_message" />');
+							})
 			form.password1.focus();
 			return false;
 		}
@@ -87,38 +99,9 @@
 					<label class="uk-form-label"><fmt:message
 							key="user.register.username" /></label>
 					<div class="uk-form-controls">
-						<input name="userModel.username" v-model="username" id="username" type="text"
-							maxlength="50"
+						<input name="userModel.username" v-model="username" id="username"
+							type="text" maxlength="50"
 							placeholder="<fmt:message key="user.register.username" />"
-							class="uk-width-1-1">
-					</div>
-				</div>
-				<!-- 姓名 -->
-				<div class="uk-form-row">
-					<label class="uk-form-label"><fmt:message
-							key="user.register.name" /></label>
-					<div class="uk-form-controls">
-						<input name="userModel.name" v-model="name" id="name" type="text" maxlength="50"
-							placeholder="<fmt:message key="user.register.name" />"
-							class="uk-width-1-1">
-					</div>
-				</div>
-				<!-- 电子邮件 -->
-				<div class="uk-form-row">
-					<label class="uk-form-label"><fmt:message
-							key="user.register.email" /></label>
-					<div class="uk-form-controls">
-						<input name="userModel.email" v-model="email" id="email" type="text" maxlength="50"
-							placeholder="your-name@example.com" class="uk-width-1-1">
-					</div>
-				</div>
-				<!-- 电话 -->
-				<div class="uk-form-row">
-					<label class="uk-form-label"><fmt:message
-							key="user.register.phone" /></label>
-					<div class="uk-form-controls">
-						<input name="userModel.phone" v-model="phone" id="phone" type="text" maxlength="50"
-							placeholder="<fmt:message key="user.register.phone" />"
 							class="uk-width-1-1">
 					</div>
 				</div>
@@ -127,22 +110,54 @@
 					<label class="uk-form-label"><fmt:message
 							key="user.register.password" /></label>
 					<div class="uk-form-controls">
-						<input name="userModel.password" v-model="password" id="password" type="password"
-							maxlength="50" placeholder="<fmt:message key="user.register.password" />"
+						<input name="userModel.password" v-model="password" id="password"
+							type="password" maxlength="50"
+							placeholder="<fmt:message key="user.register.password" />"
 							class="uk-width-1-1">
 					</div>
 				</div>
-				<!-- 重复密码 -->
+
 				<div class="uk-form-row">
-					<label class="uk-form-label"><fmt:message
-							key="user.register.repassword" /></label>
+					<label class="uk-form-label">性别</label>
 					<div class="uk-form-controls">
-						<input name="userModel.password1" v-model="password1" id="password1" type="password"
-							maxlength="50"
-							placeholder="<fmt:message key="user.register.repassword" />"
-							class="uk-width-1-1">
+						<select id="form-h-s">
+							<option>男</option>
+							<option>女</option>
+						</select>
 					</div>
 				</div>
+
+
+				<div class="uk-form-row">
+					<label class="uk-form-label">专业</label>
+					<div class="uk-form-controls">
+						<label><input type="radio" name="radio"> 计算机科学与技术</label>
+						<label><input type="radio" name="radio"> 软件工程</label>
+					</div>
+				</div>
+
+				<div class="uk-form-row">
+					<label class="uk-form-label">爱好</label>
+					<div class="uk-form-controls">
+						<label><input type="checkbox">读书</label>
+						<label><input type="checkbox">篮球</label>
+						<label><input type="checkbox">游戏</label>
+					</div>
+				</div>
+
+
+
+				<div class="uk-form-row">
+					<label class="uk-form-label">个人简介</label>
+					<div class="uk-form-controls">
+						<textarea id="form-h-t" cols="30" rows="5" placeholder="个人简介"></textarea>
+					</div>
+				</div>
+
+
+
+
+
 				<!-- 注册按钮 -->
 				<div class="uk-form-row">
 					<button type="submit"

@@ -18,10 +18,6 @@
 		<!-- 登录框 -->
 		<div class="uk-vertical-align-middle" style="width: 320px">
 			<div id="message" class="uk-alert uk-alert-danger">IP被禁止访问，请关闭浏览器</div>
-			    异常信息：<br>
-    			<s:property value="exception.message"/>  <!-- 输出throw抛出的异常对象 -->
-    			<s:property value="exceptionStack"/>     <!-- 输出异常堆栈详细信息，利于调试 -->
-    			<s:debug />      <!-- 输出上下文值栈信息 -->
 		</div>
 	</div>
 </body>
