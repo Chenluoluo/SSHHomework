@@ -1,9 +1,13 @@
 package cn.ciwest.ssh.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,9 @@ public class UserModel {
 	private String password;
 	private String email;
 	private String phone;
+	@OneToMany(mappedBy = "userModel")
+	@Column(nullable=true)
+	private List<BlogModel> blogs;
 
 	public int getNumber() {
 		return number;
@@ -64,5 +71,13 @@ public class UserModel {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public List<BlogModel> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(List<BlogModel> blogs) {
+		this.blogs = blogs;
 	}
 }

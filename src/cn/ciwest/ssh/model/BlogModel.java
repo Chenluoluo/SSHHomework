@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +21,9 @@ public class BlogModel {
 	private String create_time;
 	private String alter_time;
 	private String text;
+	@ManyToOne(targetEntity=UserModel.class)  
+	@JoinColumn(name = "number",updatable=false,insertable=false,nullable=true)
+	private UserModel userModel;
 
 	public int getNumber() {
 		return number;
@@ -82,5 +87,13 @@ public class BlogModel {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public UserModel getUserModel() {
+		return userModel;
+	}
+
+	public void setUserModel(UserModel userModel) {
+		this.userModel = userModel;
 	}
 }
