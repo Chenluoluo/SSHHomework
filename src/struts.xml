@@ -19,7 +19,7 @@
 			</interceptor-stack>
 		</interceptors>
 
-		<default-interceptor-ref name="blogStack" />
+		<!-- <default-interceptor-ref name="blogStack" /> -->
 
 		<global-results>
 			<result name="ip" type="redirect">error/iperror.jsp</result>
