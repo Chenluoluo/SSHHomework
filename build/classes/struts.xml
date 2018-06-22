@@ -19,7 +19,7 @@
 			</interceptor-stack>
 		</interceptors>
 
-		<!-- <default-interceptor-ref name="blogStack" /> -->
+		<default-interceptor-ref name="blogStack" />
 
 		<global-results>
 			<result name="ip" type="redirect">error/iperror.jsp</result>
@@ -42,11 +42,13 @@
 		<action name="register" class="cn.ciwest.ssh.action.UserRegisterAction">
 			<result name="success">login.jsp</result>
 			<result name="failed">registerFailed.jsp</result>
+			<result name="input">register.jsp</result>
 		</action>
 		<action name="login" class="cn.ciwest.ssh.action.UserLoginAction">
 			<result name="success">loginSucceed.jsp</result>
 			<result name="nouser">loginNoUser.jsp</result>
 			<result name="failed">loginFailed.jsp</result>
+			<result name="input">login.jsp</result>
 		</action>
 		<action name="logout" class="cn.ciwest.ssh.action.UserLogoutAction">
 			<result name="success" type="redirect">login.jsp</result>
@@ -58,6 +60,9 @@
 		<action name="remove" class="cn.ciwest.ssh.action.UserRemoveAction">
 			<result name="success" type="redirect">logout.do</result>
 		</action>
+		<action name="*">  
+  			<result>/{1}.jsp</result>  
+		</action>  
 	</package>
 
 	<package name="blog" namespace="/blog" extends="struts-default">

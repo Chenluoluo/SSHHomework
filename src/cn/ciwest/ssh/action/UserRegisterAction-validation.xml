@@ -1,10 +1,22 @@
 <!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" 
      "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-	<field name="userModel.phone">
-		<field-validator type="requiredstring">
-			<message>请输入正确的号码</message>
+	<field name="userModel.username">
+		<field-validator type="required">
+			<message>请输入用户名和密码</message>
 		</field-validator>
 	</field>
-
+	<field name="userModel.password">
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">12</param>
+			<message>密码应该在6-12位之间</message>
+		</field-validator>
+	</field>
+	<field name="userModel.email">
+		<field-validator type="email">
+			<message>请输入正确的邮件地址</message>
+		</field-validator>
+	</field>
+	
 </validators>

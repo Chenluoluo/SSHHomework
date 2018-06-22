@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <fmt:setBundle basename="cn.ciwest.ssh.message.blog" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="uk-height-1-1">
@@ -38,6 +39,7 @@
 		<!-- 登录框 -->
 		<div class="uk-vertical-align-middle" style="width: 320px">
 			<!-- 登陆表单 -->
+			
 			<form action="login.do"
 				onsubmit="return checklogin(this)"
 				class="uk-panel uk-panel-box uk-form">
@@ -47,6 +49,8 @@
 				</p>
 				<!-- 提示信息 -->
 				<div id="message" class="uk-alert uk-alert-danger uk-hidden"></div>
+				<s:fielderror fieldName="userModel.username"  class="uk-alert uk-alert-danger"/>
+				<s:fielderror fieldName="userModel.password"  class="uk-alert uk-alert-danger"/>
 				<!-- 用户名 -->
 				<div class="uk-form-row">
 					<div class="uk-form-icon uk-width-1-1">
@@ -56,7 +60,7 @@
 					</div>
 				</div>
 				<!-- 密码 -->
-				<div class="uk-form-row">
+ 				<div class="uk-form-row">
 					<div class="uk-form-icon uk-width-1-1">
 						<i class="uk-icon-lock"></i> <input v-model="passwd" id="password"
 							name="userModel.password" type="password" placeholder="<fmt:message key="user.login.password" />" maxlength="50"

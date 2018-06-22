@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <fmt:setBundle basename="cn.ciwest.ssh.message.blog" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="uk-height-1-1">
@@ -82,6 +83,9 @@
 				</p>
 				<!-- 提示信息 -->
 				<div id="message" class="uk-alert uk-alert-danger uk-hidden"></div>
+				<s:fielderror fieldName="userModel.username"  class="uk-alert uk-alert-danger"/>
+				<s:fielderror fieldName="userModel.password"  class="uk-alert uk-alert-danger"/>
+				<s:fielderror fieldName="userModel.email"  class="uk-alert uk-alert-danger"/>
 				<!-- 用户名 -->
 				<div class="uk-form-row">
 					<label class="uk-form-label"><fmt:message
@@ -143,6 +147,48 @@
 							class="uk-width-1-1">
 					</div>
 				</div>
+				
+				
+								<div class="uk-form-row">
+					<label class="uk-form-label">性别</label>
+					<div class="uk-form-controls">
+						<select id="form-h-s">
+							<option>男</option>
+							<option>女</option>
+						</select>
+					</div>
+				</div>
+
+
+				<div class="uk-form-row">
+					<label class="uk-form-label">专业</label>
+					<div class="uk-form-controls">
+						<label><input type="radio" name="radio"> 计算机科学与技术</label>
+						<label><input type="radio" name="radio"> 软件工程</label>
+					</div>
+				</div>
+
+				<div class="uk-form-row">
+					<label class="uk-form-label">爱好</label>
+					<div class="uk-form-controls">
+						<label><input type="checkbox">读书</label>
+						<label><input type="checkbox">篮球</label>
+						<label><input type="checkbox">游戏</label>
+					</div>
+				</div>
+
+
+
+				<div class="uk-form-row">
+					<label class="uk-form-label">个人简介</label>
+					<div class="uk-form-controls">
+						<textarea id="form-h-t" cols="30" rows="5" placeholder="个人简介"></textarea>
+					</div>
+				</div>
+				
+				
+				
+				
 				<!-- 注册按钮 -->
 				<div class="uk-form-row">
 					<button type="submit"

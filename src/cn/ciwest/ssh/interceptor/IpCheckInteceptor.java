@@ -30,8 +30,8 @@ public class IpCheckInteceptor implements Interceptor {
 
 		String ip = ServletActionContext.getRequest().getRemoteAddr();
 		System.out.println(ip);
-		if (ip.equals("0:0:0:0:0:0:0:1")) {
-//		if (false) {
+//		if (ip.equals("0:0:0:0:0:0:0:1")) {
+		if (false) {
 			System.out.println("Ip被禁止访问");
 			return "iperror";
 		} else {
