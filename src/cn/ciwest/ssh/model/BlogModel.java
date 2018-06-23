@@ -21,8 +21,8 @@ public class BlogModel {
 	private String create_time;
 	private String alter_time;
 	private String text;
-	@ManyToOne(targetEntity=UserModel.class)  
-	@JoinColumn(name = "number",updatable=false,insertable=false,nullable=true)
+	@ManyToOne  
+	@JoinColumn(name = "unumber")
 	private UserModel userModel;
 
 	public int getNumber() {

@@ -19,7 +19,9 @@ create table HW_blog(
 	decoration varchar(500),
 	create_time varchar(20),
 	alter_time varchar(20),
-	text varchar(5000)
+	text varchar(5000),
+	unumber int,
+	foreign key (unumber) references HW_user(number)
 );
 create table HW_comment(
 	number int primary key auto_increment,
